@@ -1,16 +1,43 @@
-# React + Vite
+# Pesudo Code thingy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Homepage
 
-Currently, two official plugins are available:
+Just follow google' stitch design since I suck at UI designing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## CartPage
 
-## React Compiler
+Create a Google Stitch Design I guess lmao
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ShopPage
 
-## Expanding the ESLint configuration
+Create a google stitch design I guess lmao
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Error Page
+
+## Components
+
+Make those components work first as well as the pages and then based on your existing code data, ask google stitch to create the tailored UI design for your codse.
+
+### NavBar
+
+Follow Google Stitch's design but with edits. It should have:
+
+1. Name of page which is clickable when clicked goes to the Homepage. Here the homepage should be "highlighted" in some ways when the user is in this route.
+2. Shop - when clicked routes to the ShopPage. When actually in ShopPage route; this part of the nav bar should be "highlighted"
+3. A Shopping icon - should have a number on how much there are in the user's cart. Should be "highlighted" if the user is in this route.
+
+### ShopItemCard
+
+1. Input filed which lets the user type how many items they want to buy
+2. At the sides of the input field a decrement and increment button for fine tuning.
+3. Product Image
+4. Product Title
+5. "Add To Cart"
+
+### CartItemCard
+
+1. Product Image
+2. Product Title
+3. Product Quantity
+4. Increment and decrement button
+5. Delete
