@@ -1,6 +1,7 @@
 import CartPage from "./app/CartPage/CartPage.jsx";
 import HomePage from "./app/HomePage.jsx";
 import ShopPage from "./app/ShopPage/ShopPage.jsx";
+import TestPage from "./app/test/TestPage.jsx";
 const routes = [
   {
     path: "/",
@@ -13,6 +14,10 @@ const routes = [
   {
     path: "/cart",
     element: <CartPage />,
+  },
+  {
+    path: "/test",
+    element: <TestPage />,
   },
 ];
 
