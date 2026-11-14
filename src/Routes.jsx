@@ -1,9 +1,18 @@
-import App from "./app/App.jsx";
-
+import CartPage from "./app/CartPage/CartPage.jsx";
+import HomePage from "./app/HomePage.jsx";
+import ShopPage from "./app/ShopPage/ShopPage.jsx";
 const routes = [
   {
     path: "/",
-    element: <App />,
+    element: <HomePage />,
+  },
+  {
+    path: "/shop",
+    element: <ShopPage />,
+  },
+  {
+    path: "/cart",
+    element: <CartPage />,
   },
 ];
 
