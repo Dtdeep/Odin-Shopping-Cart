@@ -1,4 +1,4 @@
-import App from "./App.jsx";
+import App from "./app/App.jsx";
 
 const routes = [
   {
