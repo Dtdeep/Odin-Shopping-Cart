@@ -1,23 +1,8 @@
-import CartPage from "./app/CartPage/CartPage.jsx";
-import HomePage from "./app/HomePage.jsx";
-import ShopPage from "./app/ShopPage/ShopPage.jsx";
-import TestPage from "./app/test/TestPage.jsx";
+import Layout from "./app/Layout";
 const routes = [
   {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/shop",
-    element: <ShopPage />,
-  },
-  {
-    path: "/cart",
-    element: <CartPage />,
-  },
-  {
-    path: "/test",
-    element: <TestPage />,
+    path: "/:name?",
+    element: <Layout />,
   },
 ];
 

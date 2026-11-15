@@ -3,7 +3,7 @@ import CartSvg from "../../assets/shopping-cart.svg?react";
 import { Link } from "react-router";
 
 const NavBar = ({ currentRoute, cartItemCount }) => {
-  const inHome = currentRoute === "home";
+  const inHome = !currentRoute;
   const inCart = currentRoute === "cart";
   const inShop = currentRoute === "shop";
 
