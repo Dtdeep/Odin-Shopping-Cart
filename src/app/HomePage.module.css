@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+}
+
+.leftDiv {
+  max-width: 600px;
+  background-color: pink;
+}
+
+.leftHeader {
+  font-size: 2.3rem;
+}
+
+.imgDiv {
+  background-image: url("src/assets/Mikay.jpg");
+  background-size: contain;
+  background-position: center;
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 500px;
+}
