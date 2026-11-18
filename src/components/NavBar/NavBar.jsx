@@ -12,7 +12,7 @@ const NavBar = ({ currentRoute, cartItemCount }) => {
       <ul className={styles.ul}>
         <li className={styles.logo}>
           <Link to="/" className={styles.linkDecoration}>
-            <h2 className={styles.title}>Shopping Site</h2>
+            <h2 className={styles.title}>Mikay Shop</h2>
           </Link>
         </li>
         <li className={`${styles.link} ${inHome ? styles.active : ""}`}>
