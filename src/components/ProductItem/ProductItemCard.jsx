@@ -35,14 +35,24 @@ const ProductItemCard = ({
       <h3>{productName}</h3>
       <p>₱{productPrice}</p>
       <div>
-        <button onClick={() => handleQuantityButton("subtract")}>-</button>
+        <button
+          data-testid="subtractBtn"
+          onClick={() => handleQuantityButton("subtract")}
+        >
+          -
+        </button>
         <input
           className={styles.inputBox}
           type="text"
           value={currentQuantity}
           onChange={handleInput}
         />
-        <button onClick={() => handleQuantityButton("add")}>+</button>
+        <button
+          data-testid="addBtn"
+          onClick={() => handleQuantityButton("add")}
+        >
+          +
+        </button>
       </div>
       <button onClick={() => handleAddCart(productId, currentQuantity)}>
         Add To Cart

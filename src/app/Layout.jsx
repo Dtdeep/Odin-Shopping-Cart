@@ -7,6 +7,7 @@ import CartPage from "./CartPage/CartPage";
 
 const Layout = () => {
   const { name } = useParams();
+  const [cartItems, setCartItems] = [{}];
   let Page;
   if (!name) {
     Page = <HomePage />;
