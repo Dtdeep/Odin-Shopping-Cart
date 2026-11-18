@@ -1,0 +1,13 @@
+.cartItem {
+  display: flex;
+  max-height: 100px;
+  align-items: center;
+}
+
+.cartItemImage {
+  max-width: 100px;
+}
+
+.cartItemQuantity {
+  width: 40px;
+}
