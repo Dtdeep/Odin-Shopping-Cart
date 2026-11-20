@@ -1,20 +1,50 @@
 import styles from "./CartItemCard.module.css";
-
-const CartItemCard = () => {
+import TrashSvg from "../../assets/trash-svg.svg?react";
+const CartItemCard = ({
+  productId,
+  imagePath,
+  productName,
+  productValue,
+  productPrice,
+  handleQuantityButton,
+  handleInput,
+  handleDelete,
+}) => {
   return (
     <div className={styles.cartItem}>
       <img
         className={styles.cartItemImage}
-        src="src/assets/cafe.jpg"
+        src={imagePath}
         alt="manhattan cafe in black dress"
       />
-      <h3>Manhattan Cafe</h3>
-      <button>-</button>
-      <input className={styles.cartItemQuantity} type="text" />
-      <button>+</button>
-      <p>₱200.00</p>
+      <h3>{productName}</h3>
+      <button
+        data-testid="subtractBtn"
+        onClick={() => {
+          handleQuantityButton(productId, "subtract");
+        }}
+      >
+        -
+      </button>
+      <input
+        onChange={(e) => handleInput(productId, e)}
+        className={styles.cartItemQuantity}
+        type="text"
+        value={productValue}
+      />
+      <button
+        data-testid="addBtn"
+        onClick={() => {
+          handleQuantityButton(productId, "add");
+        }}
+      >
+        +
+      </button>
+      <p>₱{productPrice}</p>
 
-      <button>Trash svg</button>
+      <button data-testid="trashBtn" onClick={() => handleDelete(productId)}>
+        <TrashSvg className={styles.trashSvg} width={25} height={25} />
+      </button>
     </div>
   );
 };
