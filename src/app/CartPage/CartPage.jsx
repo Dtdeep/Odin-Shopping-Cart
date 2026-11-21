@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import CartContext from "../CartContext";
+import CartShopContext from "../CartContext";
 import CartItemCard from "../../components/CartItemCard/CartItemCard";
 const CartPage = () => {
-  const { cartItems, shoppingItems } = useContext(CartContext);
+  const { cartItems, shoppingItems } = useContext(CartShopContext);
 
   return (
     <main>
@@ -12,6 +12,7 @@ const CartPage = () => {
         );
         return (
           <CartItemCard
+            key={productDetail.id}
             productId={productDetail.id}
             imagePath={productDetail.image}
             productName={productDetail.title}

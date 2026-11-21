@@ -5,7 +5,8 @@ import HomePage from "./HomePage";
 import ShopPage from "./ShopPage/ShopPage";
 import CartPage from "./CartPage/CartPage";
 import { useState, useEffect } from "react";
-import CartContext from "./CartContext";
+import CartShopContext from "./CartContext";
+import HandlerContext from "./HandlerContext";
 
 const Layout = () => {
   const { name } = useParams();
@@ -40,8 +41,8 @@ const Layout = () => {
       if (command === "add") {
         return { id: productId, quantity: cartItem.quantity + 1 };
       }
-      if (command === "false") {
-        return { id: productId, quantity: cartItem.quantity + 1 };
+      if (command === "subtract") {
+        return { id: productId, quantity: cartItem.quantity - 1 };
       }
       return cartItem;
     });
@@ -82,15 +83,16 @@ const Layout = () => {
   return (
     <Fragment>
       <NavBar currentRoute={name} cartItemCount={cartItems.length} />
-      <CartContext
-        value={{
-          cartItems: cartItems,
-          shoppingItems: shoppingItems,
-          handleQuantityButton: handleQuantityButton,
-        }}
-      >
-        {Page}
-      </CartContext>
+      <HandlerContext value={{ handleQuantityButton: handleQuantityButton }}>
+        <CartShopContext
+          value={{
+            cartItems: cartItems,
+            shoppingItems: shoppingItems,
+          }}
+        >
+          {Page}
+        </CartShopContext>
+      </HandlerContext>
     </Fragment>
   );
 };

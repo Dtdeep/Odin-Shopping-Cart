@@ -1,15 +1,16 @@
 import styles from "./CartItemCard.module.css";
 import TrashSvg from "../../assets/trash-svg.svg?react";
+import HandlerContext from "../../app/HandlerContext";
+import { useContext } from "react";
 const CartItemCard = ({
   productId,
   imagePath,
   productName,
   productValue,
   productPrice,
-  handleQuantityButton,
-  handleInput,
-  handleDelete,
 }) => {
+  const { handleQuantityButton, handleInput, handleDelete } =
+    useContext(HandlerContext);
   return (
     <div className={styles.cartItem}>
       <img
