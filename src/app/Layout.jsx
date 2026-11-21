@@ -5,12 +5,13 @@ import HomePage from "./HomePage";
 import ShopPage from "./ShopPage/ShopPage";
 import CartPage from "./CartPage/CartPage";
 import { useState, useEffect } from "react";
+import CartContext from "./CartContext";
 
 const Layout = () => {
   const { name } = useParams();
   const [cartItems, setCartItems] = useState([]);
   const [shoppingItems, setShoppingItems] = useState([]);
-  const [error, setError] = useState(null);
+  const [errorShop, setErrorShop] = useState(null);
   let Page;
 
   const handleAddCart = (productId, quantity) => {
@@ -31,6 +32,23 @@ const Layout = () => {
     setCartItems(newCartItem);
   };
 
+  const handleQuantityButton = (productId, command) => {
+    const newCartItem = cartItems.map((cartItem) => {
+      if (cartItem.id !== productId) {
+        return cartItem;
+      }
+      if (command === "add") {
+        return { id: productId, quantity: cartItem.quantity + 1 };
+      }
+      if (command === "false") {
+        return { id: productId, quantity: cartItem.quantity + 1 };
+      }
+      return cartItem;
+    });
+
+    setCartItems(newCartItem);
+  };
+
   if (!name) {
     Page = <HomePage />;
   } else if (name === "shop") {
@@ -38,7 +56,7 @@ const Layout = () => {
       <ShopPage
         shoppingItems={shoppingItems}
         handleAddCart={handleAddCart}
-        error={error}
+        error={errorShop}
       />
     );
   } else if (name === "cart") {
@@ -56,15 +74,23 @@ const Layout = () => {
       })
       .then((data) => setShoppingItems(data))
       .catch((error) => {
-        setError(error);
+        setErrorShop(error);
       });
     return controller.abort();
-  });
+  }, []);
 
   return (
     <Fragment>
       <NavBar currentRoute={name} cartItemCount={cartItems.length} />
-      {Page}
+      <CartContext
+        value={{
+          cartItems: cartItems,
+          shoppingItems: shoppingItems,
+          handleQuantityButton: handleQuantityButton,
+        }}
+      >
+        {Page}
+      </CartContext>
     </Fragment>
   );
 };
