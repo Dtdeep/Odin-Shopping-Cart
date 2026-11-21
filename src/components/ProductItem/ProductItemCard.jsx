@@ -25,6 +25,7 @@ const ProductItemCard = ({
     if (Number.isNaN(value)) return;
     setCurrentQuantity(value);
   };
+
   return (
     <div className={styles.cardRoot}>
       <img

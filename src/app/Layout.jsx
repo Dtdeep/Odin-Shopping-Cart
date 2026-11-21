@@ -8,15 +8,39 @@ import { useState, useEffect } from "react";
 
 const Layout = () => {
   const { name } = useParams();
-  const [cartItems, setCartItems] = useState([{}]);
-  const [shoppingItems, setShoppingItems] = useState([{}]);
-  const [error, setError] = useState("");
+  const [cartItems, setCartItems] = useState([]);
+  const [shoppingItems, setShoppingItems] = useState([]);
+  const [error, setError] = useState(null);
   let Page;
+
+  const handleAddCart = (productId, quantity) => {
+    if (quantity <= 0) return;
+    let newCartItem;
+    const exists = cartItems.some((product) => product.id === productId);
+    if (exists) {
+      newCartItem = cartItems.map((cartItem) => {
+        if (cartItem.id === productId) {
+          return { id: productId, quantity: quantity };
+        }
+        return cartItem;
+      });
+    } else {
+      newCartItem = [...cartItems, { id: productId, quantity: quantity }];
+    }
+    console.log(newCartItem);
+    setCartItems(newCartItem);
+  };
 
   if (!name) {
     Page = <HomePage />;
   } else if (name === "shop") {
-    Page = <ShopPage shoppingItems={shoppingItems} />;
+    Page = (
+      <ShopPage
+        shoppingItems={shoppingItems}
+        handleAddCart={handleAddCart}
+        error={error}
+      />
+    );
   } else if (name === "cart") {
     Page = <CartPage />;
   }
@@ -39,7 +63,7 @@ const Layout = () => {
 
   return (
     <Fragment>
-      <NavBar currentRoute={name} cartItemCount={10} />
+      <NavBar currentRoute={name} cartItemCount={cartItems.length} />
       {Page}
     </Fragment>
   );

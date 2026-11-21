@@ -1,8 +1,12 @@
 import ProductItemCard from "../../components/ProductItem/ProductItemCard";
 import styles from "./ShopPage.module.css";
-const ShopPage = ({ shoppingItems }) => {
-  if (!shoppingItems) {
-    return <h1>Loading</h1>;
+const ShopPage = ({ shoppingItems, handleAddCart, error }) => {
+  if (shoppingItems.length === 0) {
+    return <h1>...Loading</h1>;
+  }
+
+  if (error) {
+    return <h1>Error</h1>;
   }
 
   return (
@@ -10,10 +14,12 @@ const ShopPage = ({ shoppingItems }) => {
       {shoppingItems.map((product) => {
         return (
           <ProductItemCard
+            key={product.id}
             productId={product.id}
             imagePath={product.image}
             productName={product.title}
             productPrice={product.price}
+            handleAddCart={handleAddCart}
           />
         );
       })}
