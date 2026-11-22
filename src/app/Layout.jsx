@@ -22,7 +22,7 @@ const Layout = () => {
     if (exists) {
       newCartItem = cartItems.map((cartItem) => {
         if (cartItem.id === productId) {
-          return { id: productId, quantity: quantity };
+          return { id: productId, quantity: cartItem.quantity + quantity };
         }
         return cartItem;
       });
@@ -44,6 +44,22 @@ const Layout = () => {
       if (command === "subtract") {
         return { id: productId, quantity: cartItem.quantity - 1 };
       }
+      return cartItem;
+    });
+
+    setCartItems(newCartItem);
+  };
+
+  const handleCartInput = (productId, e) => {
+    const raw = e.target.value;
+    const value = Number(raw);
+    if (Number.isNaN(value)) return;
+
+    const newCartItem = cartItems.map((cartItem) => {
+      if (cartItem.id === productId) {
+        return { id: productId, quantity: value };
+      }
+
       return cartItem;
     });
 
@@ -83,7 +99,12 @@ const Layout = () => {
   return (
     <Fragment>
       <NavBar currentRoute={name} cartItemCount={cartItems.length} />
-      <HandlerContext value={{ handleQuantityButton: handleQuantityButton }}>
+      <HandlerContext
+        value={{
+          handleQuantityButton: handleQuantityButton,
+          handleCartInput: handleCartInput,
+        }}
+      >
         <CartShopContext
           value={{
             cartItems: cartItems,

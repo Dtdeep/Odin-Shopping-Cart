@@ -9,14 +9,14 @@ const CartItemCard = ({
   productValue,
   productPrice,
 }) => {
-  const { handleQuantityButton, handleInput, handleDelete } =
+  const { handleQuantityButton, handleCartInput, handleDelete } =
     useContext(HandlerContext);
   return (
     <div className={styles.cartItem}>
       <img
         className={styles.cartItemImage}
         src={imagePath}
-        alt="manhattan cafe in black dress"
+        alt="product image"
       />
       <h3>{productName}</h3>
       <button
@@ -28,7 +28,7 @@ const CartItemCard = ({
         -
       </button>
       <input
-        onChange={(e) => handleInput(productId, e)}
+        onChange={(e) => handleCartInput(productId, e)}
         className={styles.cartItemQuantity}
         type="text"
         value={productValue}
@@ -41,7 +41,7 @@ const CartItemCard = ({
       >
         +
       </button>
-      <p>₱{productPrice}</p>
+      <p>₱{productPrice * productValue}</p>
 
       <button data-testid="trashBtn" onClick={() => handleDelete(productId)}>
         <TrashSvg className={styles.trashSvg} width={25} height={25} />
