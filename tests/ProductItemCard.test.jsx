@@ -109,7 +109,7 @@ describe("Test ProductItemCard Component's behavior", () => {
     expect(component.inputElement.value).toBe("30");
   });
 
-  it("Triggers add cart button with the right parameters", async () => {
+  it("Triggers add cart button with the right parameters and resets the currentQuantity back to zero", async () => {
     const handleAddCartTest = vi.fn(() => {});
 
     const user = userEvent.setup();
@@ -125,5 +125,6 @@ describe("Test ProductItemCard Component's behavior", () => {
     await user.click(component.addToCartBtn);
 
     expect(handleAddCartTest).toHaveBeenCalledWith(1, 20);
+    expect(component.inputElement.value).toBe("0");
   });
 });
