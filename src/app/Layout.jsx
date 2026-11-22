@@ -42,6 +42,8 @@ const Layout = () => {
         return { id: productId, quantity: cartItem.quantity + 1 };
       }
       if (command === "subtract") {
+        if (cartItem.quantity <= 0) return cartItem;
+
         return { id: productId, quantity: cartItem.quantity - 1 };
       }
       return cartItem;
