@@ -27,39 +27,50 @@ const ProductItemCard = ({
   };
 
   return (
-    <div className={styles.cardRoot}>
-      <img className={styles.cardImage} src={imagePath} alt="product image" />
-      <h3>{productName}</h3>
-      <p>₱{productPrice}</p>
-      <div>
+    <article className={styles.cardRoot}>
+      <div className={styles.imageContainer}>
+        <img className={styles.cardImage} src={imagePath} alt={productName} />
+      </div>
+      <div className={styles.cardContent}>
+        <h3 className={styles.productName}>{productName}</h3>
+        <p className={styles.productPrice}>₱{productPrice}</p>
+        <div className={styles.quantityRow}>
+          <button
+            className={styles.quantityButton}
+            data-testid="subtractBtn"
+            onClick={() => handleQuantityButton("subtract")}
+            type="button"
+          >
+            −
+          </button>
+          <input
+            className={styles.inputBox}
+            type="text"
+            value={currentQuantity}
+            onChange={handleInput}
+            aria-label="Quantity"
+          />
+          <button
+            className={styles.quantityButton}
+            data-testid="addBtn"
+            onClick={() => handleQuantityButton("add")}
+            type="button"
+          >
+            +
+          </button>
+        </div>
         <button
-          data-testid="subtractBtn"
-          onClick={() => handleQuantityButton("subtract")}
+          className={styles.addButton}
+          onClick={() => {
+            handleAddCart(productId, currentQuantity);
+            setCurrentQuantity(0);
+          }}
+          type="button"
         >
-          -
-        </button>
-        <input
-          className={styles.inputBox}
-          type="text"
-          value={currentQuantity}
-          onChange={handleInput}
-        />
-        <button
-          data-testid="addBtn"
-          onClick={() => handleQuantityButton("add")}
-        >
-          +
+          Add To Cart
         </button>
       </div>
-      <button
-        onClick={() => {
-          handleAddCart(productId, currentQuantity);
-          setCurrentQuantity(0);
-        }}
-      >
-        Add To Cart
-      </button>
-    </div>
+    </article>
   );
 };
 

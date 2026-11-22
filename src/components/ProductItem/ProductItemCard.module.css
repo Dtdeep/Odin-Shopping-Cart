@@ -1,14 +1,117 @@
 .cardRoot {
-  min-width: 150px;
-  max-width: 200px;
+  width: 250px;
+  min-height: 390px;
+  overflow: hidden;
+  border: 1px solid #ddd8ca;
+  border-radius: 2px;
+  background: #faf9f6;
+  color: #2d2d29;
+  font-family: system-ui, sans-serif;
 }
 
-.inputBox {
-  width: 40px;
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  padding: 22px;
+  border-bottom: 1px solid #e6e2d7;
+  background: #f1ede4;
 }
 
 .cardImage {
-  height: 150px;
   width: 100%;
+  height: 100%;
   object-fit: contain;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+}
+
+.productName {
+  height: 4.05em;
+  min-height: 4.05em;
+  margin: 0;
+  overflow: hidden;
+  color: #151512;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.productPrice {
+  margin: 0;
+  color: #68675f;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.quantityRow {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  height: 40px;
+  border: 1px solid #d3cebf;
+}
+
+.quantityButton {
+  border: 0;
+  background: #f1ede4;
+  color: #151512;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.inputBox {
+  width: 100%;
+  border: 0;
+  border-right: 1px solid #d3cebf;
+  border-left: 1px solid #d3cebf;
+  outline: none;
+  background: #faf9f6;
+  color: #151512;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+
+.addButton {
+  height: 42px;
+  border: 1px solid #151512;
+  background: #151512;
+  color: #faf9f6;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .cardRoot {
+    width: calc(50% - 8px);
+    min-width: 150px;
+  }
+
+  .imageContainer {
+    height: 180px;
+  }
+
+  .cardContent {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cardRoot {
+    width: 100%;
+  }
 }
