@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: calc(100vh - 69px);
+  padding: 40px 24px;
+  background: #faf9f6;
+}
+
+@media (max-width: 700px) {
+  .main {
+    gap: 12px;
+    padding: 24px 12px;
+  }
+}
