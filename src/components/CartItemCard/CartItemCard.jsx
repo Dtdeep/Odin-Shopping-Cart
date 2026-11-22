@@ -9,7 +9,7 @@ const CartItemCard = ({
   productValue,
   productPrice,
 }) => {
-  const { handleQuantityButton, handleCartInput, handleDelete } =
+  const { handleQuantityButton, handleCartInput, handleCartDelete } =
     useContext(HandlerContext);
   return (
     <div className={styles.cartItem}>
@@ -43,7 +43,10 @@ const CartItemCard = ({
       </button>
       <p>₱{productPrice * productValue}</p>
 
-      <button data-testid="trashBtn" onClick={() => handleDelete(productId)}>
+      <button
+        data-testid="trashBtn"
+        onClick={() => handleCartDelete(productId)}
+      >
         <TrashSvg className={styles.trashSvg} width={25} height={25} />
       </button>
     </div>

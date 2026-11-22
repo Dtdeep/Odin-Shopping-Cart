@@ -66,6 +66,13 @@ const Layout = () => {
     setCartItems(newCartItem);
   };
 
+  const handleCartDelete = (productId) => {
+    const newCartItem = cartItems.filter((cartItem) => {
+      return cartItem.id !== productId;
+    });
+    setCartItems(newCartItem);
+  };
+
   if (!name) {
     Page = <HomePage />;
   } else if (name === "shop") {
@@ -103,6 +110,7 @@ const Layout = () => {
         value={{
           handleQuantityButton: handleQuantityButton,
           handleCartInput: handleCartInput,
+          handleCartDelete: handleCartDelete,
         }}
       >
         <CartShopContext
