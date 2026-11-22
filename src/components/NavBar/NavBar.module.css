@@ -76,3 +76,46 @@
   text-align: center;
   letter-spacing: 0;
 }
+
+@media (max-width: 700px) {
+  .ul {
+    padding: 12px 18px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .link {
+    margin: 0 8px;
+  }
+
+  .cartIcon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ul {
+    padding: 10px 12px;
+  }
+
+  .title {
+    max-width: 72px;
+    font-size: 15px;
+  }
+
+  .link {
+    margin: 0 5px;
+  }
+
+  .cart {
+    padding: 4px;
+  }
+
+  .cartIcon {
+    width: 24px;
+    height: 24px;
+  }
+}
