@@ -1,21 +1,92 @@
 .main {
   display: flex;
+  min-height: calc(100vh - 69px);
+  background: #faf9f6;
+  font-family: system-ui, sans-serif;
 }
 
 .leftDiv {
-  max-width: 600px;
-  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 52%;
+  padding: 64px clamp(32px, 7vw, 96px);
+  color: #2d2d29;
+  background: #f1ede4;
+}
+
+.collection {
+  max-width: 520px;
+  color: #777568;
+  font-family: system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .leftHeader {
-  font-size: 2.3rem;
+  max-width: 620px;
+  margin: 18px 0 24px;
+  color: #151512;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 5vw, 5.2rem);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.description {
+  max-width: 520px;
+  color: #68675f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  line-height: 1.65;
 }
 
 .imgDiv {
-  background-image: url("src/assets/Mikay.jpg");
-  background-size: contain;
-  background-position: center;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 500px;
+  width: 48%;
+  min-height: 560px;
+  background-image: url("../assets/Mikay.jpg");
+  background-position: center 44%;
+  background-size: cover;
+}
+
+@media (max-width: 700px) {
+  .main {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .leftDiv {
+    width: 100%;
+    min-height: 390px;
+    padding: 48px 24px;
+  }
+
+  .leftHeader {
+    max-width: 420px;
+    margin: 14px 0 20px;
+    font-size: clamp(2.25rem, 12vw, 3.4rem);
+  }
+
+  .description {
+    max-width: 390px;
+  }
+
+  .imgDiv {
+    width: 100%;
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 380px) {
+  .leftDiv {
+    min-height: 360px;
+    padding: 40px 20px;
+  }
+
+  .imgDiv {
+    width: 100%;
+    min-height: 350px;
+  }
 }
