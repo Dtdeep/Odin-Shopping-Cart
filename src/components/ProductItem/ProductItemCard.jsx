@@ -28,11 +28,7 @@ const ProductItemCard = ({
 
   return (
     <div className={styles.cardRoot}>
-      <img
-        className={styles.cardImage}
-        src={imagePath}
-        alt="manhattan cafe in black dress"
-      />
+      <img className={styles.cardImage} src={imagePath} alt="product image" />
       <h3>{productName}</h3>
       <p>₱{productPrice}</p>
       <div>

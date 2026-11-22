@@ -2,7 +2,7 @@ import styles from "./HomePage.module.css";
 
 const HomePage = () => {
   return (
-    <main className={styles.main}>
+    <main data-testid="homePage" className={styles.main}>
       <div className={styles.leftDiv}>
         <p>Collection 04 -- Essential Living</p>
         <h1 className={styles.leftHeader}>

@@ -5,7 +5,7 @@ const CartPage = () => {
   const { cartItems, shoppingItems } = useContext(CartShopContext);
 
   return (
-    <main>
+    <main data-testid="cartPage">
       {cartItems.map((cartItem) => {
         const productDetail = shoppingItems.find(
           (product) => product.id == cartItem.id,

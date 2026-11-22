@@ -10,7 +10,7 @@ const ShopPage = ({ shoppingItems, handleAddCart, error }) => {
   }
 
   return (
-    <main className={styles.main}>
+    <main data-testid="shopPage" className={styles.main}>
       {shoppingItems.map((product) => {
         return (
           <ProductItemCard

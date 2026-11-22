@@ -21,12 +21,20 @@ const NavBar = ({ currentRoute, cartItemCount }) => {
           </Link>
         </li>
         <li className={`${styles.link} ${inShop ? styles.active : ""}`}>
-          <Link to="/shop" className={styles.linkDecoration}>
+          <Link
+            to="/shop"
+            className={styles.linkDecoration}
+            data-testid="shopLink"
+          >
             Shop
           </Link>
         </li>
         <li className={`${styles.cart} ${inCart ? styles.cartActive : ""}`}>
-          <Link to="/cart" className={styles.linkDecoration}>
+          <Link
+            to="/cart"
+            className={styles.linkDecoration}
+            data-testid="cartLink"
+          >
             <CartSvg className={`${styles.cartIcon}`} width={30} height={30} />
             <span className={styles.cartCount}>{cartItemCount}</span>
           </Link>
