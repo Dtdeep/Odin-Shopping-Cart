@@ -2,7 +2,7 @@ import { screen, render } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import CartItemCard from "../src/components/CartItemCard/CartItemCard";
-
+import HandlerContext from "../src/app/HandlerContext";
 const setUpComponent = (
   productId,
   imagePath,
@@ -14,16 +14,21 @@ const setUpComponent = (
   const mockHandleInput = vi.fn();
   const mockHandleDelete = vi.fn();
   render(
-    <CartItemCard
-      productId={productId}
-      imagePath={imagePath}
-      productName={productName}
-      productValue={productValue}
-      productPrice={productPrice}
-      handleQuantityButton={mockHandleQuantity}
-      handleInput={mockHandleInput}
-      handleDelete={mockHandleDelete}
-    />,
+    <HandlerContext
+      value={{
+        handleQuantityButton: mockHandleQuantity,
+        handleCartInput: mockHandleInput,
+        handleCartDelete: mockHandleDelete,
+      }}
+    >
+      <CartItemCard
+        productId={productId}
+        imagePath={imagePath}
+        productName={productName}
+        productValue={productValue}
+        productPrice={productPrice}
+      />
+    </HandlerContext>,
   );
 
   const subtractButton = screen.getByTestId("subtractBtn");
@@ -32,13 +37,13 @@ const setUpComponent = (
   const deleteButton = screen.getByTestId("trashBtn");
 
   return {
+    mockHandleQuantity,
+    mockHandleInput,
+    mockHandleDelete,
     subtractButton,
     addButton,
     inputElement,
     deleteButton,
-    mockHandleQuantity,
-    mockHandleInput,
-    mockHandleDelete,
   };
 };
 
